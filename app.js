@@ -13,7 +13,7 @@ var Users = require('./models/users');
 var app = express();
 
 var config = require('./config.dev');
-
+var apiAuthRouter = require('./routes/api/auth');
 var mongoose = require('mongoose');
 //Connect to MongoDB
 mongoose.connect(config.mongodb, { useNewUrlParser: true });
@@ -72,7 +72,7 @@ passport.deserializeUser(function(user, done){
   done(null, user);
 });
 
-
+app.use('/api/auth', apiAuthRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
