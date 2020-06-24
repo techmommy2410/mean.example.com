@@ -11,6 +11,11 @@ var app = express();
 
 var config = require('./config.dev');
 
+var mongoose = require('mongoose');
+//Connect to MongoDB
+mongoose.connect(config.mongodb, { useNewUrlParser: true });
+
+
 //Test the file
 //console.log(config);
 
