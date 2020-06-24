@@ -57,6 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/users', apiUsersRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+passport.use(Users.createStrategy());
 passport.serializeUser(function(user, done){
   done(null,{
     id: user._id,
@@ -71,7 +72,7 @@ passport.deserializeUser(function(user, done){
   done(null, user);
 });
 
-passport.use(Users.createStrategy());
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
