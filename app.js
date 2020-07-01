@@ -42,7 +42,7 @@ app.use(require('express-session')({
     domain: config.cookie.domain,
     //httpOnly: true,
     //secure: true,
-    maxAge:3600000 //1 hour
+    maxAge:7200000 //2 hour
   }
 }));
 app.use(passport.initialize());
