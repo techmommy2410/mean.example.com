@@ -15,6 +15,12 @@ var Users = new Schema({
     required: [true, 'Please enter a username'],
     unique: [true, 'Usernames must be unique']
   },
+  first_name: String,
+  last_name: String,
+  admin: {
+    type: Boolean,
+    default: false
+  },
   hash: {
     type: String,
     required: [
@@ -29,29 +35,24 @@ var Users = new Schema({
       'There was a problem creating your password'
     ]
   },
-  first_name: String,
-  last_name: String,
-  admin: {
-    type: Boolean,
-    default: false,
-created: {
-      type: Date,
-      default: Date.now
-    },
-modified: {
-      type: Date,
-      default: Date.now
-    }
+  created: {
+    type: Date,
+    default: Date.now
+  },
+  modified: {
+    type: Date,
+    default: Date.now
   }
+
 });
 
+Users.pre('save', function(next){
+  this.modified = new Date().toISOString();
+  next();
+});
 
 //Add unique validation properties to the model
 Users.plugin(uniqueValidator);
 Users.plugin(passportLocalMongoose);
-Users.pre('save', function(next){
-    this.modified = new Date().toISOString();
-    next();
-  });
 
 module.exports  = mongoose.model('Users', Users);
