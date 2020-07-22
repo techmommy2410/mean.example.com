@@ -59,14 +59,14 @@ gulp.task('build-users-js', function() {
 
 gulp.task('build-articles-js', function() {
 
-  var ArticlesApp = gulp.src([
+  var articlesApp = gulp.src([
     'src/js/articles.app.js',
   ])
   .pipe(concat('articles.app.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest('public/dist/js'));
 
-  return merge(ArticlesApp);
+  return merge(articlesApp);
 });
 
 //Recompile SCSS/JS on save

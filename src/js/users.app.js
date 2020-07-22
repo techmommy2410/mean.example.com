@@ -271,7 +271,7 @@ function processRequest(formId, url, method){
         <a href="#" class="btn btn-primary">Cancel</a>
       </div>
 
-          <h2 class="h3 text-center">Your About to Delete a User</h2>
+          <h2 class="h3 text-center">THIS ACTION CANNOT BE REVERSED!</h2>
         </div>
         <div class="card-body text-center">
           <div>
@@ -285,7 +285,7 @@ function processRequest(formId, url, method){
           <div class="text-center">
             <br>
             <a onclick="usersApp.deleteUser('${data.user._id}');" class="btn btn-lg btn-danger text-white">
-            Yes delete ${data.user.username}
+            Yes, delete ${data.user.username}
           </a>
           </div>
   

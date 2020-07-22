@@ -29,8 +29,6 @@ router.get('/:slug', function(req, res, next) {
     return res.render('articles/view', { title: 'Articles' , article:articles});
   }
   });
-
-  
 });
 
 module.exports = router;

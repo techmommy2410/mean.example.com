@@ -1,14 +1,10 @@
 extends ../layout
 
 block content
-  h1= title
-  hr
+  h1 Blog
   for article in articles
-    hr
 
     div.article
-      a(href='./' +   article.slug)
+      a(href='articles/' +   article.slug)
         h2= article.title
         div!= article.description
-    hr
-    script(src='/dist/js/articles.app.min.js')
